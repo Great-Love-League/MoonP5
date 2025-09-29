@@ -3,6 +3,8 @@ pub type P5Instance
 
 pub type Color
 
+pub type ClipOptions
+
 pub(open) trait P5JS{
   getP5Instance(Self) -> P5Instance
   // 其他的方法

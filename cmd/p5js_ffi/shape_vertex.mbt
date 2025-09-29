@@ -1,12 +1,12 @@
-/// https://p5js.org/zh-Hans/reference/p5/beginContour/
+/// https://p5js.org/reference/p5/beginContour/
 pub extern "js" fn P5Instance::beginContour(self: P5Instance) -> Unit =
   #| (self) => self.beginContour()
 
-/// https://p5js.org/zh-Hans/reference/p5/endContour/
+/// https://p5js.org/reference/p5/endContour/
 pub extern "js" fn P5Instance::endContour(self: P5Instance) -> Unit =
   #| (self) => self.endContour()
 
-/// https://p5js.org/zh-Hans/reference/p5/beginShape/
+/// https://p5js.org/reference/p5/beginShape/
 // beginShape() 准备开始定义一个复杂的形状
 // POINTS 绘制一系列点。
 // LINES 绘制一系列不相连的线段。
@@ -19,11 +19,11 @@ pub extern "js" fn P5Instance::endContour(self: P5Instance) -> Unit =
 pub extern "js" fn P5Instance::beginShape(self: P5Instance, mode?: String) -> Unit =
   #| (self, mode) => self.beginShape(mode)
 
-/// https://p5js.org/zh-Hans/reference/p5/endShape/
+/// https://p5js.org/reference/p5/endShape/
 pub extern "js" fn P5Instance::endShape(self: P5Instance, mode?: String, count?: Int) -> Unit =
   #| (self, mode, count) => self.endShape(mode, count)
 
-/// https://p5js.org/zh-Hans/reference/p5/bezierVertex/
+/// https://p5js.org/reference/p5/bezierVertex/
 /// 在向beginShape()和endShape()之间使用，指定一个贝塞尔曲线的顶点
 /// 如果beginShape()传递了一个参数（例如beginShape(TRIANGLES)），则bezierVertex()将不起作用
 /// x2, y2: 第一个控制点的坐标
@@ -32,14 +32,14 @@ pub extern "js" fn P5Instance::endShape(self: P5Instance, mode?: String, count?:
 pub extern "js" fn P5Instance::bezierVertex(self: P5Instance, x2: Double, y2: Double, x3: Double, y3: Double, x4: Double, y4: Double) -> Unit =
   #| (self, x2, y2, x3, y3, x4, y4) => self.bezierVertex(x2, y2, x3, y3, x4, y4)
 
-/// https://p5js.org/zh-Hans/reference/p5/curveVertex/
+/// https://p5js.org/reference/p5/curveVertex/
 /// 在向beginShape()和endShape()之间使用，指定一个曲线的顶点
 /// 如果beginShape()传递了一个参数（例如beginShape(TRIANGLES)），则curveVertex()将不起作用
 /// x, y: 顶点坐标
 pub extern "js" fn P5Instance::curveVertex(self: P5Instance, x: Double, y: Double) -> Unit =
   #| (self, x, y) => self.curveVertex(x, y)
 
-/// https://p5js.org/zh-Hans/reference/p5/vertex/
+/// https://p5js.org/reference/p5/vertex/
 /// vertex() 必须在 beginShape() 和 endShape() 之间使用
 /// x, y, z: 顶点坐标
 /// u, v: 纹理坐标
@@ -47,14 +47,14 @@ pub extern "js" fn P5Instance::curveVertex(self: P5Instance, x: Double, y: Doubl
 pub extern "js" fn P5Instance::vertex(self: P5Instance, x: Double, y: Double, z?: Double = 0.0, u?: Double = 0.0, v?: Double = 0.0) -> Unit =
   #| (self, x, y, z, u, v) => self.vertex(x, y, z, u, v)
 
-/// https://p5js.org/zh-Hans/reference/p5/normal/
+/// https://p5js.org/reference/p5/normal/
 /// normal() 必须在 beginShape() 和 endShape() 之间使用
 /// nx, ny, nz: 法线向量的 x、y 和 z 分量
 /// 默认 nz=0
 pub extern "js" fn P5Instance::normal(self: P5Instance, nx: Double, ny: Double, nz?: Double = 0.0) -> Unit =
   #| (self, nx, ny, nz) => self.normal(nx, ny, nz)
 
-/// https://p5js.org/zh-Hans/reference/p5/quadraticVertex/
+/// https://p5js.org/reference/p5/quadraticVertex/
 /// 在向beginShape()和endShape()之间使用，指定一个二次贝塞尔曲线的顶点
 /// 如果beginShape()传递了一个参数（例如beginShape(TRIANGLES)），则quadraticVertex()将不起作用
 /// x2, y2: 控制点的坐标
