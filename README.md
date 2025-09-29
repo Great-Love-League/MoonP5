@@ -45,7 +45,7 @@ new p5(sketch);
 
 举例，如果我现在要对一个类型为 A 的类型添加一个新的方法`craet_XXX`，并且将这个方法加入特征
 
-```
+```moonbit
 
 pub(open) trait TraitName{
     // 得到共享的类型
