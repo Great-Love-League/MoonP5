@@ -1,27 +1,15 @@
 
-pub enum ArcMode {
-  OPEN
-  CHORD
-  PIE
-}
 
-fn ArcMode::to_string(self: Self) -> String {
-  match self {
-    OPEN => "OPEN"
-    CHORD => "CHORD"
-    PIE => "PIE"
-  }
-}
-
-extern "js" fn P5Instance::arc_ffi_base(self: P5Instance, x: Double, y: Double, w: Double, h: Double, start: Double, stop: Double) -> Unit =
-  #| (self, x, y, w, h, start, stop) => self.arc(x, y, w, h, start, stop)
-extern "js" fn P5Instance::arc_ffi_mode(self: P5Instance, x: Double, y: Double, w: Double, h: Double, start: Double, stop: Double, mode: String) -> Unit =
-  #| (self, x, y, w, h, start, stop, mode) => self.arc(x, y, w, h, start, stop, mode)
-extern "js" fn P5Instance::arc_ffi_detail(self: P5Instance, x: Double, y: Double, w: Double, h: Double, start: Double, stop: Double, mode: String, detail: Int) -> Unit =
-  #| (self, x, y, w, h, start, stop, mode, detail) => self.arc(x, y, w, h, start, stop, mode, detail)
+// extern "js" fn P5Instance::arc_ffi_base(self: P5Instance, x: Double, y: Double, w: Double, h: Double, start: Double, stop: Double) -> Unit =
+//   #| (self, x, y, w, h, start, stop) => self.arc(x, y, w, h, start, stop)
+// extern "js" fn P5Instance::arc_ffi_mode(self: P5Instance, x: Double, y: Double, w: Double, h: Double, start: Double, stop: Double, mode: String) -> Unit =
+//   #| (self, x, y, w, h, start, stop, mode) => self.arc(x, y, w, h, start, stop, mode)
+// extern "js" fn P5Instance::arc_ffi_detail(self: P5Instance, x: Double, y: Double, w: Double, h: Double, start: Double, stop: Double, mode: String, detail: Int) -> Unit =
+//   #| (self, x, y, w, h, start, stop, mode, detail) => self.arc(x, y, w, h, start, stop, mode, detail)
 
 /// https://p5js.org/zh-Hans/reference/p5/arc/
-pub fn P5Instance::arc(
+/// mode: 'PIE', 'CHORD', 'OPEN'
+pub extern "js" fn P5Instance::arc(
   self: P5Instance,
   x: Double,
   y: Double,
@@ -29,23 +17,10 @@ pub fn P5Instance::arc(
   h: Double,
   start: Double,
   stop: Double,
-  mode: Option[ArcMode],
-  detail: Option[Int],
-) -> Unit {
-  match (mode, detail) {
-    // Case 1: 提供了 mode 和 detail
-    (Some(m), Some(d)) => {
-      self.arc_ffi_detail(x, y, w, h, start, stop, m.to_string(), d)
-    }
-    // Case 2: 只提供了 mode
-    (Some(m), None) => {
-      self.arc_ffi_mode(x, y, w, h, start, stop, m.to_string())
-    }
-    _ => {
-      self.arc_ffi_base(x, y, w, h, start, stop)
-    }
-  }
-}
+  mode?: Option[String],
+  detail?: Option[Int],
+) -> Unit = 
+  #| (self, x, y, w, h, start, stop, mode, detail) => self.arc(x, y, w, h, start, stop, mode, detail)
 
 /// https://p5js.org/zh-Hans/reference/p5/circle/
 pub extern "js" fn P5Instance::circle(self: P5Instance, x: Double, y: Double, d: Double) -> Unit =
@@ -74,3 +49,7 @@ pub extern "js" fn P5Instance::rect(self: P5Instance, x: Double, y: Double, w: D
 /// https://p5js.org/zh-Hans/reference/p5/triangle/
 pub extern "js" fn P5Instance::triangle(self: P5Instance, x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double) -> Unit =
   #| (self, x1, y1, x2, y2, x3, y3) => self.triangle(x1, y1, x2, y2, x3, y3)
+
+/// https://p5js.org/zh-Hans/reference/p5/square/
+pub extern "js" fn P5Instance::square(self: P5Instance, x: Double, y: Double, s: Double) -> Unit =
+  #| (self, x, y, s) => self.square(x, y, s)

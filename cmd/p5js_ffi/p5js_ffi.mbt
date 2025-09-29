@@ -1,6 +1,8 @@
 #external
 pub type P5Instance
 
+pub type Color
+
 pub(open) trait P5JS{
   getP5Instance(Self) -> P5Instance
   // 其他的方法
@@ -52,4 +54,3 @@ impl P5JS with setTouchStarted(self, callback){
 impl P5JS with cancelTouchStarted(self){
   self.getP5Instance().cancelTouchStarted_()
 }
-
