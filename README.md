@@ -38,3 +38,30 @@ const sketch = (p) => {
 console.log('⚡ 即将创建p5实例...');
 new p5(sketch);
 ```
+
+## 编写指南
+
+采用trait的方式完成。也就是说在添加一个新特征的时候，需要先给trait里面添加一个接口，然后添加一个类的方法，然后为这个trait进行默认实现
+
+举例，如果我现在要对一个类型为 A 的类型添加一个新的方法`craet_XXX`，并且将这个方法加入特征
+
+```
+
+pub(open) trait TraitName{
+    // 得到共享的类型
+    getA(Self) -> A
+    // _ 下划线代表有默认实现
+    craet_XXX(Self, params) -> ReturenType = _
+}
+
+// 本地方法实现，不要pub
+fn A::craet_XXX_(self, params) -> ReturenType{
+    pass
+}
+
+// 实现默认方法
+impl TraitName with craet_XXX(Self, params) {
+    Self.get().craet_XXX_(params)
+}
+
+```
