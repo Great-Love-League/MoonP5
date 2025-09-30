@@ -58,3 +58,32 @@ pub extern "js" fn P5Instance::paletteLerp(self: P5Instance, colors_stops: Array
   #|   const js_colors_stops = colors_stops.map(item => [item._0, item._1]);
   #|   return self.paletteLerp(js_colors_stops, amt);
   #| }
+
+///|
+/// https://p5js.org/reference/p5/Color/setRed/
+pub extern "js" fn Color::setRed(self: Color, r: Double) -> Unit =
+  #| (self, r) => {
+  #|   self.setRed(r);
+  #| }
+
+///|
+/// https://p5js.org/reference/p5/Color/setGreen/
+pub extern "js" fn Color::setGreen(self: Color, g: Double) -> Unit =
+  #| (self, g) => {
+  #|   self.setGreen(g);
+  #| }
+
+///|
+/// https://p5js.org/reference/p5.Color/setBlue/
+pub extern "js" fn Color::setBlue(self: Color, b: Double) -> Unit =
+  #| (self, b) => self.setBlue(b);
+
+///|
+/// https://p5js.org/reference/p5.Color/setAlpha/
+pub extern "js" fn Color::setAlpha(self: Color, a: Double) -> Unit =
+  #| (self, a) => self.setAlpha(a);
+
+///|
+/// https://p5js.org/reference/p5.Color/toString/
+pub extern "js" fn Color::toString(self: Color, str : Option[String]) -> String =
+  #| (self, str) => self.toString(str);
