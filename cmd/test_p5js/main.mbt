@@ -16,6 +16,10 @@ extern "js" fn getP5Instance(
 fn main {
   let draww = fn(p : @p5js_ffi.P5Instance) {
     let get = p.getTouches()
+    p.background(255.0, v2=Some(204.0), v3=Some(0.0))
+    let a = p.paletteLerp([("red", 0.0), ("blue", 0.5), ("green", 1.0)], p.millis() / 5000.0 % 1.0)
+    p.fill_colorObj(a)
+    p.square(100.0, 100.0, 50.0)
     for t in get {
       let id = t.getId()
       let x = t.getX()

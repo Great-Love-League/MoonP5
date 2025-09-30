@@ -2,6 +2,12 @@
 #external
 pub type P5Instance
 
+#external
+pub type Color
+
+#external
+pub type ClipOptions
+
 ///|
 pub(open) trait P5JS {
   getP5Instance(Self) -> P5Instance
