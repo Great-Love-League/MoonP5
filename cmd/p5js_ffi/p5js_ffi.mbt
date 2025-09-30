@@ -11,6 +11,28 @@ pub type Color
 pub type ClipOptions
 
 ///|
+/// https://p5js.org/reference/p5.Font/textToPoints/
+#external
+pub type Font
+
+///|
+#external
+pub type TextBounds
+
+///|
+/// 用于 textToPoints 返回的点对象
+pub(all) struct PointData {
+  x: Double
+  y: Double
+  alpha: Double
+}
+
+///|
+/// 用于 textToPoints 的 options 参数
+#external
+pub type TextToPointsOptions
+
+///|
 pub(open) trait P5JS {
   getP5Instance(Self) -> P5Instance
   // 其他的方法
@@ -138,6 +160,30 @@ pub(open) trait P5JS {
   lerpColor(Self, Color, Color, Double) -> Color = _
   lightness(Self, Color) -> Double = _
   paletteLerp(Self, Array[(String, Double)], Double) -> Color = _
+
+  // typography_attributes
+  textAlign(Self, String, String?) -> Unit = _
+  textLeadingSet(Self, Double) -> Unit = _
+  textLeadingGet(Self) -> Double = _
+  textAscent(Self) -> Double = _
+  textDescent(Self) -> Double = _
+  textSizeSet(Self, Double) -> Unit = _
+  textSizeGet(Self) -> Double = _
+  textStyle(Self, String?) -> Unit = _
+  textWidth(Self, String) -> Double = _
+  textWrap(Self, String) -> Unit = _
+
+  // typography_LoadingDisplaying
+  loadFont(Self, String, Option[(Font) -> Unit], Option[(String) -> Unit]) -> Font = _
+  textFont(Self, Font, Double?) -> Unit = _
+  text(Self, String, Double, Double, Double?, Double?) -> Unit = _
+}
+
+pub(open) trait FontJS {
+  getFont(Self) -> Font
+
+  textBounds(Self, String, Double, Double, Option[Double]) -> TextBounds = _
+  textToPoints(Self, String, Double, Double, Option[Double], Option[TextToPointsOptions]) -> Array[PointData] = _
 }
 
 ///|
@@ -145,7 +191,6 @@ pub impl P5JS for P5Instance with getP5Instance(self) {
   self
 }
 
-///|
 pub impl P5JS for P5Instance
 
 // 这下面请实现默认方法，类的本地方法请分写在文件
@@ -715,3 +760,100 @@ impl P5JS with lightness(self, c) {
 impl P5JS with paletteLerp(self, colors_stops, amt) {
   self.getP5Instance().paletteLerp_(colors_stops, amt)
 }
+
+// typography_attributes
+
+///|
+impl P5JS with textAlign(self, horizAlign, vertAlign) {
+  match vertAlign {
+    Some(v) => self.getP5Instance().textAlign_(horizAlign, vertAlign=Some(v))
+    None => self.getP5Instance().textAlign_(horizAlign)
+  }
+}
+
+///|
+impl P5JS with textLeadingSet(self, leading) {
+  self.getP5Instance().textLeading_set_(leading)
+}
+
+///|
+impl P5JS with textLeadingGet(self) {
+  self.getP5Instance().textLeading_get_()
+}
+
+///|
+impl P5JS with textAscent(self) {
+  self.getP5Instance().textAscent_()
+}
+
+///|
+impl P5JS with textDescent(self) {
+  self.getP5Instance().textDescent_()
+}
+
+///|
+impl P5JS with textSizeSet(self, size) {
+  self.getP5Instance().textSize_set_(size)
+}
+
+///|
+impl P5JS with textSizeGet(self) {
+  self.getP5Instance().textSize_get_()
+}
+
+///|
+impl P5JS with textStyle(self, style) {
+  self.getP5Instance().textStyle_(style=style)
+}
+
+///|
+impl P5JS with textWidth(self, str) {
+  self.getP5Instance().textWidth_(str)
+}
+
+///|
+impl P5JS with textWrap(self, mode) {
+  self.getP5Instance().textWrap_(mode)
+}
+
+// typography_LoadingDisplaying
+
+///|
+impl P5JS with loadFont(self, path, onSuccess, onFailure) {
+  self.getP5Instance().loadFont_(path, onSuccess~, onFailure~)
+}
+
+///|
+impl P5JS with textFont(self, font, size) {
+  match size {
+    Some(s) => self.getP5Instance().textFont_(font, size=Some(s))
+    None => self.getP5Instance().textFont_(font)
+  }
+}
+
+///|
+impl P5JS with text(self, str, x, y, x2, y2) {
+  match (x2, y2) {
+    (Some(x2v), Some(y2v)) => self.getP5Instance().text_(str, x, y, x2=Some(x2v), y2=Some(y2v))
+    (Some(x2v), None) => self.getP5Instance().text_(str, x, y, x2=Some(x2v))
+    (None, None) => self.getP5Instance().text_(str, x, y)
+    _ => self.getP5Instance().text_(str, x, y)
+  }
+}
+
+///|
+impl FontJS with textBounds(self, str, x, y, fontSize) {
+  self.getFont().textBounds_(str, x, y, fontSize=fontSize)
+}
+
+///|
+impl FontJS with textToPoints(self, str, x, y, fontSize, options) {
+  self.getFont().textToPoints_(str, x, y, fontSize=fontSize, options=options)
+}
+
+///|
+pub impl FontJS for Font with getFont(self) {
+  self
+}
+
+pub impl FontJS for Font
