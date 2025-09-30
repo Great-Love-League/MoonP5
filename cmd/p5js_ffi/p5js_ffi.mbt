@@ -11,6 +11,7 @@ pub type Color
 pub type ClipOptions
 
 ///|
+/// https://p5js.org/reference/p5.Font/textToPoints/
 #external
 pub type Font
 
@@ -20,7 +21,7 @@ pub type TextBounds
 
 ///|
 /// 用于 textToPoints 返回的点对象
-pub struct PointData {
+pub(all) struct PointData {
   x: Double
   y: Double
   alpha: Double
@@ -849,3 +850,10 @@ impl FontJS with textBounds(self, str, x, y, fontSize) {
 impl FontJS with textToPoints(self, str, x, y, fontSize, options) {
   self.getFont().textToPoints_(str, x, y, fontSize=fontSize, options=options)
 }
+
+///|
+pub impl FontJS for Font with getFont(self) {
+  self
+}
+
+pub impl FontJS for Font
