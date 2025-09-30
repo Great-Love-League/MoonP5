@@ -2,9 +2,11 @@
 #external
 pub type P5Instance
 
+///|
 #external
 pub type Color
 
+///|
 #external
 pub type ClipOptions
 
@@ -48,23 +50,94 @@ pub(open) trait P5JS {
   mouseIsPressed(Self) -> Bool = _
   getMouseButtonString(Self) -> String = _
   getMouseButton(Self) -> MouseButton = _
-  setDoubleClicked(Self, (Option[MouseEvent]) -> Bool) -> Unit = _
+  setDoubleClicked(Self, (MouseEvent?) -> Bool) -> Unit = _
   cancelDoubleClicked(Self) -> Unit = _
-  setMouseClicked(Self, (Option[MouseEvent]) -> Bool) -> Unit = _
+  setMouseClicked(Self, (MouseEvent?) -> Bool) -> Unit = _
   cancelMouseClicked(Self) -> Unit = _
-  setMouseDragged(Self, (Option[MouseEvent]) -> Bool) -> Unit = _
+  setMouseDragged(Self, (MouseEvent?) -> Bool) -> Unit = _
   cancelMouseDragged(Self) -> Unit = _
-  setMouseMoved(Self, (Option[MouseEvent]) -> Bool) -> Unit = _
+  setMouseMoved(Self, (MouseEvent?) -> Bool) -> Unit = _
   cancelMouseMoved(Self) -> Unit = _
-  setMousePressed(Self, (Option[MouseEvent]) -> Bool) -> Unit = _
+  setMousePressed(Self, (MouseEvent?) -> Bool) -> Unit = _
   cancelMousePressed(Self) -> Unit = _
-  setMouseReleased(Self, (Option[MouseEvent]) -> Bool) -> Unit = _
+  setMouseReleased(Self, (MouseEvent?) -> Bool) -> Unit = _
   cancelMouseReleased(Self) -> Unit = _
-  setMouseWheel(Self, (Option[MouseEvent]) -> Bool) -> Unit = _
+  setMouseWheel(Self, (MouseEvent?) -> Bool) -> Unit = _
   cancelMouseWheel(Self) -> Unit = _
   requestPointerLock(Self) -> Unit = _
   exitPointerLock(Self) -> Unit = _
 
+  // shape_attributes
+  ellipseMode(Self, String) -> Unit = _
+  rectMode(Self, String) -> Unit = _
+  noSmooth(Self) -> Unit = _
+  smooth(Self) -> Unit = _
+  strokeCap(Self, String) -> Unit = _
+  strokeJoin(Self, String) -> Unit = _
+  strokeWeight(Self, Double) -> Unit = _
+
+  // shape_2D
+  arc(Self, Double, Double, Double, Double, Double, Double, String?, Int?) -> Unit = _
+  circle(Self, Double, Double, Double) -> Unit = _
+  ellipse(Self, Double, Double, Double, Double) -> Unit = _
+  line(Self, Double, Double, Double, Double) -> Unit = _
+  point(Self, Double, Double) -> Unit = _
+  quad(Self, Double, Double, Double, Double, Double, Double, Double, Double) -> Unit = _
+  rect(Self, Double, Double, Double, Double) -> Unit = _
+  triangle(Self, Double, Double, Double, Double, Double, Double) -> Unit = _
+  square(Self, Double, Double, Double) -> Unit = _
+
+  // shape_curve
+  bezier(Self, Double, Double, Double, Double, Double, Double, Double, Double) -> Unit = _
+  bezierPoint(Self, Double, Double, Double, Double, Double) -> Double = _
+  bezierTangent(Self, Double, Double, Double, Double, Double) -> Double = _
+  curve(Self, Double, Double, Double, Double, Double, Double, Double, Double) -> Unit = _
+  curvePoint(Self, Double, Double, Double, Double, Double) -> Double = _
+  curveTangent(Self, Double, Double, Double, Double, Double) -> Double = _
+  curveTightness(Self, Double) -> Unit = _
+
+  // shape_vertex
+  beginContour(Self) -> Unit = _
+  endContour(Self) -> Unit = _
+  beginShape(Self, String?) -> Unit = _
+  endShape(Self, String?, Int?) -> Unit = _
+  bezierVertex(Self, Double, Double, Double, Double, Double, Double) -> Unit = _
+  curveVertex(Self, Double, Double) -> Unit = _
+  vertex(Self, Double, Double, Double?, Double?, Double?) -> Unit = _
+  normal(Self, Double, Double, Double?) -> Unit = _
+  quadraticVertex(Self, Double, Double, Double, Double) -> Unit = _
+
+  // color_setting
+  noStroke(Self) -> Unit = _
+  background(Self, Double, Double?, Double?, Double?) -> Unit = _
+  fillColorPara(Self, Double, Double?, Double?, Double?) -> Unit = _
+  fillColorObj(Self, Color) -> Unit = _
+  beginClip(Self, Double, Double, Double, Double) -> Unit = _
+  endClip(Self) -> Unit = _
+  clear(Self) -> Unit = _
+  clip(Self, () -> Unit) -> Unit = _
+  clipOptions(Self, () -> Unit, ClipOptions) -> Unit = _
+  colorModeUniform(Self, String, Double) -> Unit = _
+  colorModeDetailed(Self, String, Double, Double, Double, Double?) -> Unit = _
+  erase(Self, Double?, Double?) -> Unit = _
+  noErase(Self) -> Unit = _
+  strokeColor(Self, Color) -> Unit = _
+  strokeGray(Self, Double, Double?) -> Unit = _
+  strokeComponents(Self, Double, Double, Double, Double?) -> Unit = _
+  strokeString(Self, String) -> Unit = _
+  noFill(Self) -> Unit = _
+
+  // color_CreateAndReading
+  brightness(Self, Color) -> Double = _
+  color(Self, Double, Double?, Double?, Double?) -> Color = _
+  alpha(Self, Color) -> Double = _
+  blue(Self, Color) -> Double = _
+  green(Self, Color) -> Double = _
+  red(Self, Color) -> Double = _
+  hue(Self, Color) -> Double = _
+  lerpColor(Self, Color, Color, Double) -> Color = _
+  lightness(Self, Color) -> Double = _
+  paletteLerp(Self, Array[(String, Double)], Double) -> Color = _
 }
 
 ///|
@@ -311,4 +384,334 @@ impl P5JS with requestPointerLock(self) {
 ///|
 impl P5JS with exitPointerLock(self) {
   self.getP5Instance().exitPointerLock_()
+}
+
+// shape_attributes
+
+///|
+impl P5JS with ellipseMode(self, mode) {
+  self.getP5Instance().ellipseMode_(mode)
+}
+
+///|
+impl P5JS with rectMode(self, mode) {
+  self.getP5Instance().rectMode_(mode)
+}
+
+///|
+impl P5JS with noSmooth(self) {
+  self.getP5Instance().noSmooth_()
+}
+
+///|
+impl P5JS with smooth(self) {
+  self.getP5Instance().smooth_()
+}
+
+///|
+impl P5JS with strokeCap(self, cap) {
+  self.getP5Instance().strokeCap_(cap)
+}
+
+///|
+impl P5JS with strokeJoin(self, join) {
+  self.getP5Instance().strokeJoin_(join)
+}
+
+///|
+impl P5JS with strokeWeight(self, weight) {
+  self.getP5Instance().strokeWeight_(weight)
+}
+
+// shape_2D
+
+///|
+impl P5JS with arc(self, x, y, w, h, start, stop, mode, detail) {
+  self.getP5Instance().arc_(x, y, w, h, start, stop, mode~, detail~)
+}
+
+///|
+impl P5JS with circle(self, x, y, d) {
+  self.getP5Instance().circle_(x, y, d)
+}
+
+///|
+impl P5JS with ellipse(self, x, y, w, h) {
+  self.getP5Instance().ellipse_(x, y, w, h)
+}
+
+///|
+impl P5JS with line(self, x1, y1, x2, y2) {
+  self.getP5Instance().line_(x1, y1, x2, y2)
+}
+
+///|
+impl P5JS with point(self, x, y) {
+  self.getP5Instance().point_(x, y)
+}
+
+///|
+impl P5JS with quad(self, x1, y1, x2, y2, x3, y3, x4, y4) {
+  self.getP5Instance().quad_(x1, y1, x2, y2, x3, y3, x4, y4)
+}
+
+///|
+impl P5JS with rect(self, x, y, w, h) {
+  self.getP5Instance().rect_(x, y, w, h)
+}
+
+///|
+impl P5JS with triangle(self, x1, y1, x2, y2, x3, y3) {
+  self.getP5Instance().triangle_(x1, y1, x2, y2, x3, y3)
+}
+
+///|
+impl P5JS with square(self, x, y, s) {
+  self.getP5Instance().square_(x, y, s)
+}
+
+// shape_curve
+
+///|
+impl P5JS with bezier(self, x1, y1, x2, y2, x3, y3, x4, y4) {
+  self.getP5Instance().bezier_(x1, y1, x2, y2, x3, y3, x4, y4)
+}
+
+///|
+impl P5JS with bezierPoint(self, a, b, c, d, t) {
+  self.getP5Instance().bezierPoint_(a, b, c, d, t)
+}
+
+///|
+impl P5JS with bezierTangent(self, a, b, c, d, t) {
+  self.getP5Instance().bezierTangent_(a, b, c, d, t)
+}
+
+///|
+impl P5JS with curve(self, x1, y1, x2, y2, x3, y3, x4, y4) {
+  self.getP5Instance().curve_(x1, y1, x2, y2, x3, y3, x4, y4)
+}
+
+///|
+impl P5JS with curvePoint(self, a, b, c, d, t) {
+  self.getP5Instance().curvePoint_(a, b, c, d, t)
+}
+
+///|
+impl P5JS with curveTangent(self, a, b, c, d, t) {
+  self.getP5Instance().curveTangent_(a, b, c, d, t)
+}
+
+///|
+impl P5JS with curveTightness(self, amount) {
+  self.getP5Instance().curveTightness_(amount)
+}
+
+// shape_vertex
+
+///|
+impl P5JS with beginContour(self) {
+  self.getP5Instance().beginContour_()
+}
+
+///|
+impl P5JS with endContour(self) {
+  self.getP5Instance().endContour_()
+}
+
+///|
+impl P5JS with beginShape(self, mode) {
+  match mode {
+    Some(m) => self.getP5Instance().beginShape_(mode=m)
+    None => self.getP5Instance().beginShape_()
+  }
+}
+
+///|
+impl P5JS with endShape(self, mode, count) {
+  match (mode, count) {
+    (Some(m), Some(c)) => self.getP5Instance().endShape_(mode=m, count=c)
+    (Some(m), None) => self.getP5Instance().endShape_(mode=m)
+    (None, Some(c)) => self.getP5Instance().endShape_(count=c)
+    (None, None) => self.getP5Instance().endShape_()
+  }
+}
+
+///|
+impl P5JS with bezierVertex(self, x2, y2, x3, y3, x4, y4) {
+  self.getP5Instance().bezierVertex_(x2, y2, x3, y3, x4, y4)
+}
+
+///|
+impl P5JS with curveVertex(self, x, y) {
+  self.getP5Instance().curveVertex_(x, y)
+}
+
+///|
+impl P5JS with vertex(self, x, y, z, u, v) {
+  match (z, u, v) {
+    (Some(zv), Some(uv), Some(vv)) =>
+      self.getP5Instance().vertex_(x, y, z=zv, u=uv, v=vv)
+    (Some(zv), Some(uv), None) => self.getP5Instance().vertex_(x, y, z=zv, u=uv)
+    (Some(zv), None, None) => self.getP5Instance().vertex_(x, y, z=zv)
+    (None, None, None) => self.getP5Instance().vertex_(x, y)
+    _ => self.getP5Instance().vertex_(x, y)
+  }
+}
+
+///|
+impl P5JS with normal(self, nx, ny, nz) {
+  match nz {
+    Some(nzv) => self.getP5Instance().normal_(nx, ny, nz=nzv)
+    None => self.getP5Instance().normal_(nx, ny)
+  }
+}
+
+///|
+impl P5JS with quadraticVertex(self, x2, y2, x3, y3) {
+  self.getP5Instance().quadraticVertex_(x2, y2, x3, y3)
+}
+
+// color_setting
+
+///|
+impl P5JS with noStroke(self) {
+  self.getP5Instance().noStroke_()
+}
+
+///|
+impl P5JS with background(self, v1, v2, v3, a) {
+  self.getP5Instance().background_(v1, v2~, v3~, a~)
+}
+
+///|
+impl P5JS with fillColorPara(self, v1, v2, v3, a) {
+  self.getP5Instance().fill_colorPara_(v1, v2~, v3~, a~)
+}
+
+///|
+impl P5JS with fillColorObj(self, c) {
+  self.getP5Instance().fill_colorObj_(c)
+}
+
+///|
+impl P5JS with beginClip(self, x, y, w, h) {
+  self.getP5Instance().beginClip_(x, y, w, h)
+}
+
+///|
+impl P5JS with endClip(self) {
+  self.getP5Instance().endClip_()
+}
+
+///|
+impl P5JS with clear(self) {
+  self.getP5Instance().clear_()
+}
+
+///|
+impl P5JS with clip(self, callback) {
+  self.getP5Instance().clip_(callback)
+}
+
+///|
+impl P5JS with clipOptions(self, callback, options) {
+  self.getP5Instance().clip_options_(callback, options)
+}
+
+///|
+impl P5JS with colorModeUniform(self, mode, max) {
+  self.getP5Instance().colorMode_uniform_(mode, max)
+}
+
+///|
+impl P5JS with colorModeDetailed(self, mode, max1, max2, max3, maxA) {
+  self.getP5Instance().colorMode_detailed_(mode, max1, max2, max3, maxA~)
+}
+
+///|
+impl P5JS with erase(self, strengthFill, strengthStroke) {
+  self.getP5Instance().erase_(strengthFill~, strengthStroke~)
+}
+
+///|
+impl P5JS with noErase(self) {
+  self.getP5Instance().noErase_()
+}
+
+///|
+impl P5JS with strokeColor(self, c) {
+  self.getP5Instance().stroke_color_(c)
+}
+
+///|
+impl P5JS with strokeGray(self, gray, alpha) {
+  self.getP5Instance().stroke_gray_(gray, alpha~)
+}
+
+///|
+impl P5JS with strokeComponents(self, v1, v2, v3, alpha) {
+  self.getP5Instance().stroke_components_(v1, v2, v3, alpha~)
+}
+
+///|
+impl P5JS with strokeString(self, color_string) {
+  self.getP5Instance().stroke_string_(color_string)
+}
+
+///|
+impl P5JS with noFill(self) {
+  self.getP5Instance().noFill_()
+}
+
+// color_CreateAndReading
+
+///|
+impl P5JS with brightness(self, c) {
+  self.getP5Instance().brightness_(c)
+}
+
+///|
+impl P5JS with color(self, v1, v2, v3, a) {
+  self.getP5Instance().color_(v1, v2~, v3~, a~)
+}
+
+///|
+impl P5JS with alpha(self, c) {
+  self.getP5Instance().alpha_(c)
+}
+
+///|
+impl P5JS with blue(self, c) {
+  self.getP5Instance().blue_(c)
+}
+
+///|
+impl P5JS with green(self, c) {
+  self.getP5Instance().green_(c)
+}
+
+///|
+impl P5JS with red(self, c) {
+  self.getP5Instance().red_(c)
+}
+
+///|
+impl P5JS with hue(self, c) {
+  self.getP5Instance().hue_(c)
+}
+
+///|
+impl P5JS with lerpColor(self, c1, c2, amount) {
+  self.getP5Instance().lerpColor_(c1, c2, amount)
+}
+
+///|
+impl P5JS with lightness(self, c) {
+  self.getP5Instance().lightness_(c)
+}
+
+///|
+impl P5JS with paletteLerp(self, colors_stops, amt) {
+  self.getP5Instance().paletteLerp_(colors_stops, amt)
 }

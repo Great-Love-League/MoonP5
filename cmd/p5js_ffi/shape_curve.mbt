@@ -3,8 +3,19 @@
 // pub extern "js" fn P5Instance::bezierDetail(self: P5Instance, detail: Int) -> Unit =
 //   #| (self, detail) => self.bezierDetail(detail)
 
+///|
 /// https://p5js.org/reference/p5/bezier/
-pub extern "js" fn P5Instance::bezier(self: P5Instance, x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double, x4: Double, y4: Double) -> Unit =
+extern "js" fn P5Instance::bezier_(
+  self : P5Instance,
+  x1 : Double,
+  y1 : Double,
+  x2 : Double,
+  y2 : Double,
+  x3 : Double,
+  y3 : Double,
+  x4 : Double,
+  y4 : Double,
+) -> Unit =
   #| (self, x1, y1, x2, y2, x3, y3, x4, y4) => self.bezier(x1, y1, x2, y2, x3, y3, x4, y4)
 
 /// https://p5js.org/reference/p5/bezierDetail/
@@ -12,6 +23,7 @@ pub extern "js" fn P5Instance::bezier(self: P5Instance, x1: Double, y1: Double, 
 // pub extern "js" fn P5Instance::bezierDetail(self: P5Instance, detail: Int) -> Unit =
 //   #| (self, detail) => self.bezierDetail(detail)
 
+///|
 /// https://p5js.org/reference/p5/bezierPoint/
 /// a, b, c, d: 控制点坐标（x 和 y 分别都要一次）
 /// ```
@@ -33,16 +45,42 @@ pub extern "js" fn P5Instance::bezier(self: P5Instance, x1: Double, y1: Double, 
 /// y = bezierPoint(y1, y2, y3, y4, 0.5);
 /// circle(x, y, 5);
 /// ```
-pub extern "js" fn P5Instance::bezierPoint(self: P5Instance, a: Double, b: Double, c: Double, d: Double, t: Double) -> Double =
+extern "js" fn P5Instance::bezierPoint_(
+  self : P5Instance,
+  a : Double,
+  b : Double,
+  c : Double,
+  d : Double,
+  t : Double,
+) -> Double =
   #| (self, a, b, c, d, t) => self.bezierPoint(a, b, c, d, t)
 
+///|
 /// https://p5js.org/reference/p5/bezierTangent/
 /// 同bezierPoint()
-pub extern "js" fn P5Instance::bezierTangent(self: P5Instance, a: Double, b: Double, c: Double, d: Double, t: Double) -> Double =
+extern "js" fn P5Instance::bezierTangent_(
+  self : P5Instance,
+  a : Double,
+  b : Double,
+  c : Double,
+  d : Double,
+  t : Double,
+) -> Double =
   #| (self, a, b, c, d, t) => self.bezierTangent(a, b, c, d, t)
 
+///|
 /// https://p5js.org/reference/p5/curve/
-pub extern "js" fn P5Instance::curve(self: P5Instance, x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double, x4: Double, y4: Double) -> Unit =
+extern "js" fn P5Instance::curve_(
+  self : P5Instance,
+  x1 : Double,
+  y1 : Double,
+  x2 : Double,
+  y2 : Double,
+  x3 : Double,
+  y3 : Double,
+  x4 : Double,
+  y4 : Double,
+) -> Unit =
   #| (self, x1, y1, x2, y2, x3, y3, x4, y4) => self.curve(x1, y1, x2, y2, x3, y3, x4, y4)
 
 /// https://p5js.org/reference/p5/curveDetail/
@@ -50,16 +88,36 @@ pub extern "js" fn P5Instance::curve(self: P5Instance, x1: Double, y1: Double, x
 // pub extern "js" fn P5Instance::curveDetail(self: P5Instance, detail: Int) -> Unit =
 //   #| (self, detail) => self.curveDetail(detail)
 
+///|
 /// https://p5js.org/reference/p5/curvePoint/
 /// 同bezierPoint()
-pub extern "js" fn P5Instance::curvePoint(self: P5Instance, a: Double, b: Double, c: Double, d: Double, t: Double) -> Double =
+extern "js" fn P5Instance::curvePoint_(
+  self : P5Instance,
+  a : Double,
+  b : Double,
+  c : Double,
+  d : Double,
+  t : Double,
+) -> Double =
   #| (self, a, b, c, d, t) => self.curvePoint(a, b, c, d, t)
 
+///|
 /// https://p5js.org/reference/p5/curveTangent/
 /// 同bezierPoint()
-pub extern "js" fn P5Instance::curveTangent(self: P5Instance, a: Double, b: Double, c: Double, d: Double, t: Double) -> Double =
+extern "js" fn P5Instance::curveTangent_(
+  self : P5Instance,
+  a : Double,
+  b : Double,
+  c : Double,
+  d : Double,
+  t : Double,
+) -> Double =
   #| (self, a, b, c, d, t) => self.curveTangent(a, b, c, d, t)
 
+///|
 /// https://p5js.org/reference/p5/curveTightness/
-pub extern "js" fn P5Instance::curveTightness(self: P5Instance, amount: Double) -> Unit =
+extern "js" fn P5Instance::curveTightness_(
+  self : P5Instance,
+  amount : Double,
+) -> Unit =
   #| (self, amount) => self.curveTightness(amount)

@@ -113,6 +113,7 @@ pub(all) enum KeyCode {
   UnknownKey
 } derive(Eq, Show, Hash)
 
+///|
 pub fn keyCodeToInt(code : KeyCode) -> Int {
   match code {
     // 字母键 (A-Z: 65-90)
@@ -197,13 +198,13 @@ pub fn keyCodeToInt(code : KeyCode) -> Int {
     Shift => 16
     Control => 17
     Alt => 18
-    Meta => 91  // Windows key
+    Meta => 91 // Windows key
     CapsLock => 20
     Tab => 9
 
     // 特殊键
     Enter => 13
-    NumpadEnter => 13  // 数字键盘Enter与主Enter共享键码
+    NumpadEnter => 13 // 数字键盘Enter与主Enter共享键码
     Escape => 27
     Space => 32
     Backspace => 8
@@ -215,17 +216,17 @@ pub fn keyCodeToInt(code : KeyCode) -> Int {
     PageDown => 34
 
     // 标点符号键
-    Semicolon => 186    // ;
-    Equal => 187        // =
-    Comma => 188        // ,
-    Minus => 189        // -
-    Period => 190       // .
-    Slash => 191        // /
-    Backquote => 192    // `
-    BracketLeft => 219  // [
-    Backslash => 220    // \
+    Semicolon => 186 // ;
+    Equal => 187 // =
+    Comma => 188 // ,
+    Minus => 189 // -
+    Period => 190 // .
+    Slash => 191 // /
+    Backquote => 192 // `
+    BracketLeft => 219 // [
+    Backslash => 220 // \
     BracketRight => 221 // ]
-    Quote => 222        // '
+    Quote => 222 // '
 
     // 未知键
     UnknownKey => -1
@@ -362,19 +363,22 @@ extern "js" fn P5Instance::getKey_(self : P5Instance) -> String =
 extern "js" fn P5Instance::getKeyCodeInt_(self : P5Instance) -> Int =
   #| (self) => self.keyCode
 
-
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/keyCode/
-fn P5Instance::getKeyCode_(self : P5Instance) -> KeyCode{
+fn P5Instance::getKeyCode_(self : P5Instance) -> KeyCode {
   let code = self.getKeyCodeInt_()
   return intToKeyCode(code)
 }
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/keyIsDown/
-extern "js" fn P5Instance::keyIsDownInt_(self : P5Instance, keyCode : Int) -> Bool =
+extern "js" fn P5Instance::keyIsDownInt_(
+  self : P5Instance,
+  keyCode : Int,
+) -> Bool =
   #| (self, keyCode) => self.keyIsDown(keyCode)
 
+///|
 fn P5Instance::keyIsDown_(self : P5Instance, keyCode : KeyCode) -> Bool {
   let code = keyCodeToInt(keyCode)
   return self.keyIsDownInt_(code)
@@ -387,31 +391,39 @@ extern "js" fn P5Instance::keyIsPressed_(self : P5Instance) -> Bool =
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/keyPressed/
-extern "js" fn P5Instance::setKeyPressed_(self : P5Instance, callback : () -> Bool ) = 
+extern "js" fn P5Instance::setKeyPressed_(
+  self : P5Instance,
+  callback : () -> Bool,
+) =
   #| (self, callback) => self.keyPressed = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/keyPressed/
-extern "js" fn P5Instance::cancelKeyPressed_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelKeyPressed_(self : P5Instance) =
   #| (self) => self.keyPressed = null
-
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/keyReleased/
-extern "js" fn P5Instance::setKeyReleased_(self : P5Instance, callback : () -> Bool ) = 
+extern "js" fn P5Instance::setKeyReleased_(
+  self : P5Instance,
+  callback : () -> Bool,
+) =
   #| (self, callback) => self.keyReleased = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/keyReleased/
-extern "js" fn P5Instance::cancelKeyReleased_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelKeyReleased_(self : P5Instance) =
   #| (self) => self.keyReleased = null
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/keyTyped/
-extern "js" fn P5Instance::setKeyTyped_(self : P5Instance, callback : () -> Bool ) = 
+extern "js" fn P5Instance::setKeyTyped_(
+  self : P5Instance,
+  callback : () -> Bool,
+) =
   #| (self, callback) => self.keyTyped = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/keyTyped/
-extern "js" fn P5Instance::cancelKeyTyped_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelKeyTyped_(self : P5Instance) =
   #| (self) => self.keyTyped = null

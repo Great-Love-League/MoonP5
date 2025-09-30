@@ -9,8 +9,8 @@ pub type MouseEvent
 pub extern "js" fn MouseEvent::getDelta(self : MouseEvent) -> Int =
   #| (self) => self.delta
 
-
 // mouse button
+
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseButton/
 pub(all) enum MouseButton {
@@ -52,7 +52,7 @@ extern "js" fn P5Instance::getPmouseX_(self : P5Instance) -> Int =
 extern "js" fn P5Instance::getPmouseY_(self : P5Instance) -> Int =
   #| (self) => self.pmouseY
 
-///| 
+///|
 /// https://p5js.org/zh-Hans/reference/p5/pwinMouseX/
 extern "js" fn P5Instance::getPwinMouseX_(self : P5Instance) -> Int =
   #| (self) => self.pwinMouseX
@@ -99,81 +99,101 @@ fn P5Instance::getMouseButton_(self : P5Instance) -> MouseButton {
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/doubleClicked/
-extern "js" fn P5Instance::setDoubleClicked_(self : P5Instance, callback : (Option[MouseEvent]) -> Bool ) = 
+extern "js" fn P5Instance::setDoubleClicked_(
+  self : P5Instance,
+  callback : (MouseEvent?) -> Bool,
+) =
   #| (self, callback) => self.doubleClicked = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/doubleClicked/
-extern "js" fn P5Instance::cancelDoubleClicked_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelDoubleClicked_(self : P5Instance) =
   #| (self) => self.doubleClicked = null
-
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseClicked/
-extern "js" fn P5Instance::setMouseClicked_(self : P5Instance, callback : (Option[MouseEvent]) -> Bool ) = 
+extern "js" fn P5Instance::setMouseClicked_(
+  self : P5Instance,
+  callback : (MouseEvent?) -> Bool,
+) =
   #| (self, callback) => self.mouseClicked = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseClicked/
-extern "js" fn P5Instance::cancelMouseClicked_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelMouseClicked_(self : P5Instance) =
   #| (self) => self.mouseClicked = null
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseMoved/
-extern "js" fn P5Instance::setMouseMoved_(self : P5Instance, callback : (Option[MouseEvent]) -> Bool ) = 
+extern "js" fn P5Instance::setMouseMoved_(
+  self : P5Instance,
+  callback : (MouseEvent?) -> Bool,
+) =
   #| (self, callback) => self.mouseMoved = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseMoved/
-extern "js" fn P5Instance::cancelMouseMoved_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelMouseMoved_(self : P5Instance) =
   #| (self) => self.mouseMoved = null
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseWheel/
-extern "js" fn P5Instance::setMouseWheel_(self : P5Instance, callback : (Option[MouseEvent]) -> Bool ) = 
+extern "js" fn P5Instance::setMouseWheel_(
+  self : P5Instance,
+  callback : (MouseEvent?) -> Bool,
+) =
   #| (self, callback) => self.mouseWheel = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseWheel/
-extern "js" fn P5Instance::cancelMouseWheel_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelMouseWheel_(self : P5Instance) =
   #| (self) => self.mouseWheel = null
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/requestPointerLock/
-extern "js" fn P5Instance::requestPointerLock_(self : P5Instance) = 
+extern "js" fn P5Instance::requestPointerLock_(self : P5Instance) =
   #| (self) => self.requestPointerLock()
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/exitPointerLock/
-extern "js" fn P5Instance::exitPointerLock_(self : P5Instance) = 
+extern "js" fn P5Instance::exitPointerLock_(self : P5Instance) =
   #| (self) => self.exitPointerLock()
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseDragged/
-extern "js" fn P5Instance::setMouseDragged_(self : P5Instance, callback : (Option[MouseEvent]) -> Bool ) = 
+extern "js" fn P5Instance::setMouseDragged_(
+  self : P5Instance,
+  callback : (MouseEvent?) -> Bool,
+) =
   #| (self, callback) => self.mouseDragged = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseDragged/
-extern "js" fn P5Instance::cancelMouseDragged_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelMouseDragged_(self : P5Instance) =
   #| (self) => self.mouseDragged = null
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mousePressed/
-extern "js" fn P5Instance::setMousePressed_(self : P5Instance, callback : (Option[MouseEvent]) -> Bool ) = 
+extern "js" fn P5Instance::setMousePressed_(
+  self : P5Instance,
+  callback : (MouseEvent?) -> Bool,
+) =
   #| (self, callback) => self.mousePressed = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mousePressed/
-extern "js" fn P5Instance::cancelMousePressed_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelMousePressed_(self : P5Instance) =
   #| (self) => self.mousePressed = null
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseReleased/
-extern "js" fn P5Instance::setMouseReleased_(self : P5Instance, callback : (MouseEvent?) -> Bool ) = 
+extern "js" fn P5Instance::setMouseReleased_(
+  self : P5Instance,
+  callback : (MouseEvent?) -> Bool,
+) =
   #| (self, callback) => self.mouseReleased = callback
 
 ///|
 /// https://p5js.org/zh-Hans/reference/p5/mouseReleased/
-extern "js" fn P5Instance::cancelMouseReleased_(self : P5Instance) = 
+extern "js" fn P5Instance::cancelMouseReleased_(self : P5Instance) =
   #| (self) => self.mouseReleased = null
