@@ -32,4 +32,11 @@ fn main {
     return true
   })
 
+  p5.setMouseReleased(fn(e : @p5js_ffi.MouseEvent?) {
+    e |> ignore
+    println("Mouse Released")
+    println("Pointer coordinates: \{p5.getMouseX()} , \{p5.getMouseY()}")
+    return true
+  })
+
 }
