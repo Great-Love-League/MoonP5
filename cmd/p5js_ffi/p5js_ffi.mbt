@@ -177,6 +177,10 @@ pub(open) trait P5JS {
   loadFont(Self, String, Option[(Font) -> Unit], Option[(String) -> Unit]) -> Font = _
   textFont(Self, Font, Double?) -> Unit = _
   text(Self, String, Double, Double, Double?, Double?) -> Unit = _
+
+  // canvas size
+  getCanvasWidth(Self) -> Double = _
+  getCanvasHeight(Self) -> Double = _
 }
 
 pub(open) trait FontJS {
@@ -841,6 +845,15 @@ impl P5JS with text(self, str, x, y, x2, y2) {
   }
 }
 
+///|
+impl P5JS with getCanvasWidth(self) {
+  self.getP5Instance().getCanvasWidth_()
+}
+
+///|
+impl P5JS with getCanvasHeight(self) {
+  self.getP5Instance().getCanvasHeight_()
+}
 ///|
 impl FontJS with textBounds(self, str, x, y, fontSize) {
   self.getFont().textBounds_(str, x, y, fontSize=fontSize)
