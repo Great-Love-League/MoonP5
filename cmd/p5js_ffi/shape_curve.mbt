@@ -26,7 +26,7 @@ extern "js" fn P5Instance::bezier_(
 ///|
 /// https://p5js.org/reference/p5/bezierPoint/
 /// a, b, c, d: 控制点坐标（x 和 y 分别都要一次）
-/// ```
+/// 
 /// let x1 = 85;
 /// let x2 = 10;
 /// let x3 = 90;
@@ -44,7 +44,7 @@ extern "js" fn P5Instance::bezier_(
 /// x = bezierPoint(x1, x2, x3, x4, 0.5);
 /// y = bezierPoint(y1, y2, y3, y4, 0.5);
 /// circle(x, y, 5);
-/// ```
+/// 
 extern "js" fn P5Instance::bezierPoint_(
   self : P5Instance,
   a : Double,

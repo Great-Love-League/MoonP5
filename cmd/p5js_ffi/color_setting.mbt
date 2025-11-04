@@ -83,7 +83,6 @@ extern "js" fn P5Instance::clip_(
 ///|
 /// 使用回调函数和选项对象定义一个遮罩区域
 /// ### Example
-/// ```moonbit
 /// let p: P5Instance = ...
 /// // 创建一个反转的圆形遮罩
 /// let options = new_clip_options(true)
@@ -92,7 +91,6 @@ extern "js" fn P5Instance::clip_(
 /// }, options)
 /// // 之后绘制的内容将被限制在圆形孔洞之外
 /// p.rect(0.0, 0.0, 400.0, 400.0)
-/// ```
 /// callback`: 一个函数，其中绘制的任何形状都将成为遮罩的一部分
 /// options`: 一个包含 `invert` 属性的对象
 extern "js" fn P5Instance::clip_options_(
