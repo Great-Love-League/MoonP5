@@ -22,15 +22,20 @@ pub type TextBounds
 ///|
 /// 用于 textToPoints 返回的点对象
 pub(all) struct PointData {
-  x: Double
-  y: Double
-  alpha: Double
+  x : Double
+  y : Double
+  alpha : Double
 }
 
 ///|
 /// 用于 textToPoints 的 options 参数
 #external
 pub type TextToPointsOptions
+
+///|
+/// P5.js 图像对象类型
+#external
+pub type P5Image
 
 ///|
 pub(open) trait P5JS {
@@ -174,20 +179,27 @@ pub(open) trait P5JS {
   textWrap(Self, String) -> Unit = _
 
   // typography_LoadingDisplaying
-  loadFont(Self, String, Option[(Font) -> Unit], Option[(String) -> Unit]) -> Font = _
+  loadFont(Self, String, ((Font) -> Unit)?, ((String) -> Unit)?) -> Font = _
   textFont(Self, Font, Double?) -> Unit = _
   text(Self, String, Double, Double, Double?, Double?) -> Unit = _
 
   // canvas size
   getCanvasWidth(Self) -> Double = _
   getCanvasHeight(Self) -> Double = _
+
+  // image
+  image(Self, P5Image, Double, Double, Double?, Double?) -> Unit = _
+  imageMode(Self, String) -> Unit = _
+  loadImage(Self, String, ((P5Image) -> Unit)?, ((String) -> Unit)?) -> P5Image = _
 }
 
+///|
 pub(open) trait FontJS {
   getFont(Self) -> Font
-
-  textBounds(Self, String, Double, Double, Option[Double]) -> TextBounds = _
-  textToPoints(Self, String, Double, Double, Option[Double], Option[TextToPointsOptions]) -> Array[PointData] = _
+  textBounds(Self, String, Double, Double, Double?) -> TextBounds = _
+  textToPoints(Self, String, Double, Double, Double?, TextToPointsOptions?) -> Array[
+    PointData,
+  ] = _
 }
 
 ///|
@@ -195,6 +207,7 @@ pub impl P5JS for P5Instance with getP5Instance(self) {
   self
 }
 
+///|
 pub impl P5JS for P5Instance
 
 // 这下面请实现默认方法，类的本地方法请分写在文件
@@ -807,7 +820,7 @@ impl P5JS with textSizeGet(self) {
 
 ///|
 impl P5JS with textStyle(self, style) {
-  self.getP5Instance().textStyle_(style=style)
+  self.getP5Instance().textStyle_(style~)
 }
 
 ///|
@@ -838,7 +851,8 @@ impl P5JS with textFont(self, font, size) {
 ///|
 impl P5JS with text(self, str, x, y, x2, y2) {
   match (x2, y2) {
-    (Some(x2v), Some(y2v)) => self.getP5Instance().text_(str, x, y, x2=Some(x2v), y2=Some(y2v))
+    (Some(x2v), Some(y2v)) =>
+      self.getP5Instance().text_(str, x, y, x2=Some(x2v), y2=Some(y2v))
     (Some(x2v), None) => self.getP5Instance().text_(str, x, y, x2=Some(x2v))
     (None, None) => self.getP5Instance().text_(str, x, y)
     _ => self.getP5Instance().text_(str, x, y)
@@ -854,14 +868,32 @@ impl P5JS with getCanvasWidth(self) {
 impl P5JS with getCanvasHeight(self) {
   self.getP5Instance().getCanvasHeight_()
 }
+
+// image
+
+///|
+impl P5JS with image(self, img, x, y, width, height) {
+  self.getP5Instance().image_(img, x, y, width~, height~)
+}
+
+///|
+impl P5JS with imageMode(self, mode) {
+  self.getP5Instance().imageMode_(mode)
+}
+
+///|
+impl P5JS with loadImage(self, path, callback, errorCallback) {
+  self.getP5Instance().loadImage_(path, callback, errorCallback)
+}
+
 ///|
 impl FontJS with textBounds(self, str, x, y, fontSize) {
-  self.getFont().textBounds_(str, x, y, fontSize=fontSize)
+  self.getFont().textBounds_(str, x, y, fontSize~)
 }
 
 ///|
 impl FontJS with textToPoints(self, str, x, y, fontSize, options) {
-  self.getFont().textToPoints_(str, x, y, fontSize=fontSize, options=options)
+  self.getFont().textToPoints_(str, x, y, fontSize~, options~)
 }
 
 ///|
@@ -869,4 +901,5 @@ pub impl FontJS for Font with getFont(self) {
   self
 }
 
+///|
 pub impl FontJS for Font
