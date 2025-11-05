@@ -191,6 +191,36 @@ pub(open) trait P5JS {
   image(Self, P5Image, Double, Double, Double?, Double?) -> Unit = _
   imageMode(Self, String) -> Unit = _
   loadImage(Self, String, ((P5Image) -> Unit)?, ((String) -> Unit)?) -> P5Image = _
+
+  // transform
+  applyMatrix(
+    Self,
+    Double,
+    Double,
+    Double,
+    Double,
+    Double,
+    Double,
+    Double?,
+    Double?,
+    Double?,
+    Double?,
+    Double?,
+    Double?,
+    Double?,
+    Double?,
+    Double?,
+    Double?
+  ) -> Unit = _
+  resetMatrix(Self) -> Unit = _
+  rotate(Self, Double, Array[Double]?) -> Unit = _
+  rotateX(Self, Double) -> Unit = _
+  rotateY(Self, Double) -> Unit = _
+  rotateZ(Self, Double) -> Unit = _
+  scale(Self, Double, Double?, Double?) -> Unit = _
+  shearX(Self, Double) -> Unit = _
+  shearY(Self, Double) -> Unit = _
+  translate(Self, Double, Double, Double?) -> Unit = _
 }
 
 ///|
@@ -864,11 +894,6 @@ impl P5JS with getCanvasWidth(self) {
   self.getP5Instance().getCanvasWidth_()
 }
 
-///|
-impl P5JS with getCanvasHeight(self) {
-  self.getP5Instance().getCanvasHeight_()
-}
-
 // image
 
 ///|
@@ -884,6 +909,58 @@ impl P5JS with imageMode(self, mode) {
 ///|
 impl P5JS with loadImage(self, path, callback, errorCallback) {
   self.getP5Instance().loadImage_(path, callback, errorCallback)
+}
+
+// transform
+
+///|
+impl P5JS with applyMatrix(self, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p) {
+  self.getP5Instance().applyMatrix_(a, b, c, d, e, f, g~, h~, i~, j~, k~, l~, m~, n~, o~, p~)
+}
+
+///|
+impl P5JS with resetMatrix(self) {
+  self.getP5Instance().resetMatrix_()
+}
+
+///|
+impl P5JS with rotate(self, angle, axis) {
+  self.getP5Instance().rotate_(angle, axis~)
+}
+
+///|
+impl P5JS with rotateX(self, angle) {
+  self.getP5Instance().rotateX_(angle)
+}
+
+///|
+impl P5JS with rotateY(self, angle) {
+  self.getP5Instance().rotateY_(angle)
+}
+
+///|
+impl P5JS with rotateZ(self, angle) {
+  self.getP5Instance().rotateZ_(angle)
+}
+
+///|
+impl P5JS with scale(self, s, y, z) {
+  self.getP5Instance().scale_(s, y~, z~)
+}
+
+///|
+impl P5JS with shearX(self, angle) {
+  self.getP5Instance().shearX_(angle)
+}
+
+///|
+impl P5JS with shearY(self, angle) {
+  self.getP5Instance().shearY_(angle)
+}
+
+///|
+impl P5JS with translate(self, x, y, z) {
+  self.getP5Instance().translate_(x, y, z~)
 }
 
 ///|
