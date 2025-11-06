@@ -894,6 +894,10 @@ impl P5JS with getCanvasWidth(self) {
   self.getP5Instance().getCanvasWidth_()
 }
 
+impl P5JS with getCanvasHeight(self) {
+  self.getP5Instance().getCanvasHeight_()
+}
+
 // image
 
 ///|
