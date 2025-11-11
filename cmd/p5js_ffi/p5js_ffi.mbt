@@ -221,6 +221,9 @@ pub(open) trait P5JS {
   shearX(Self, Double) -> Unit = _
   shearY(Self, Double) -> Unit = _
   translate(Self, Double, Double, Double?) -> Unit = _
+
+  push(Self) -> Unit = _
+  pop(Self) -> Unit = _
 }
 
 ///|
@@ -975,6 +978,14 @@ impl P5JS with translate(self, x, y, z) {
     Some(zv) => self.getP5Instance().translate1_(x, y, z=Some(zv))
     None => self.getP5Instance().translate2_(x, y)
   }
+}
+
+impl P5JS with push(self) {
+  self.getP5Instance().push_()
+}
+
+impl P5JS with pop(self) {
+  self.getP5Instance().pop_()
 }
 
 ///|
