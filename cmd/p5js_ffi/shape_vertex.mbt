@@ -19,20 +19,46 @@ extern "js" fn P5Instance::endContour_(self : P5Instance) -> Unit =
 // QUADS 绘制一系列单独的四边形（四边形）。
 // QUAD_STRIP 使用相邻边绘制四边形条带形式。
 // TESS 通过显式细分创建填充曲线（仅限 WebGL）。
-extern "js" fn P5Instance::beginShape_(
+extern "js" fn P5Instance::beginShape1_(
   self : P5Instance,
   mode? : String,
 ) -> Unit =
   #| (self, mode) => self.beginShape(mode)
 
+extern "js" fn P5Instance::beginShape2_(
+  self : P5Instance,
+) -> Unit =
+  #| (self) => self.beginShape()
+
 ///|
 /// https://p5js.org/reference/p5/endShape/
-extern "js" fn P5Instance::endShape_(
+extern "js" fn P5Instance::endShape1_(
   self : P5Instance,
   mode? : String,
   count? : Int,
 ) -> Unit =
   #| (self, mode, count) => self.endShape(mode, count)
+
+extern "js" fn P5Instance::endShape2_(
+  self : P5Instance,
+  mode? : String,
+) -> Unit =
+  #| (self, mode) => self.endShape(mode)
+
+///|
+/// https://p5js.org/reference/p5/endShape/
+extern "js" fn P5Instance::endShape3_(
+  self : P5Instance,
+  count? : Int,
+) -> Unit =
+  #| (self, count) => self.endShape(count)
+
+///|
+/// https://p5js.org/reference/p5/endShape/
+extern "js" fn P5Instance::endShape4_(
+  self : P5Instance,
+) -> Unit =
+  #| (self) => self.endShape()
 
 ///|
 /// https://p5js.org/reference/p5/bezierVertex/

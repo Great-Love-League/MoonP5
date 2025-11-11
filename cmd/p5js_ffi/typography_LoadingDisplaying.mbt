@@ -37,7 +37,7 @@ extern "js" fn P5Instance::textFont_(
 /// `str`: 要显示的文本
 /// `x`, `y`: 文本框的 x 和 y 坐标
 /// `x2`, `y2` (可选): 用于定义文本框宽度和高度的坐标
-extern "js" fn P5Instance::text_(
+extern "js" fn P5Instance::text1_(
   self : P5Instance,
   str : String,
   x : Double,
@@ -50,6 +50,29 @@ extern "js" fn P5Instance::text_(
   #|   const y2_val = y2 ? y2._0 : undefined;
   #|   self.text(str, x, y, x2_val, y2_val);
   #| }
+
+extern "js" fn P5Instance::text2_(
+  self : P5Instance,
+  str : String,
+  x : Double,
+  y : Double,
+) -> Unit =
+  #| (self, str, x, y) => {
+  #|   self.text(str, x, y);
+  #| }
+
+extern "js" fn P5Instance::text3_(
+  self : P5Instance,
+  str : String,
+  x : Double,
+  y : Double,
+  x2? : Double? = None,
+) -> Unit =
+  #| (self, str, x, y, x2) => {
+  #|   const x2_val = x2 ? x2._0 : undefined;
+  #|   self.text(str, x, y, x2_val);
+  #| }
+///
 
 ///|
 /// https://p5js.org/reference/p5.Font/textBounds/

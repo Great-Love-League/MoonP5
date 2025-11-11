@@ -614,18 +614,18 @@ impl P5JS with endContour(self) {
 ///|
 impl P5JS with beginShape(self, mode) {
   match mode {
-    Some(m) => self.getP5Instance().beginShape_(mode=m)
-    None => self.getP5Instance().beginShape_()
+    Some(m) => self.getP5Instance().beginShape1_(mode=m)
+    None => self.getP5Instance().beginShape2_()
   }
 }
 
 ///|
 impl P5JS with endShape(self, mode, count) {
   match (mode, count) {
-    (Some(m), Some(c)) => self.getP5Instance().endShape_(mode=m, count=c)
-    (Some(m), None) => self.getP5Instance().endShape_(mode=m)
-    (None, Some(c)) => self.getP5Instance().endShape_(count=c)
-    (None, None) => self.getP5Instance().endShape_()
+    (Some(m), Some(c)) => self.getP5Instance().endShape1_(mode=m, count=c)
+    (Some(m), None) => self.getP5Instance().endShape2_(mode=m)
+    (None, Some(c)) => self.getP5Instance().endShape3_(count=c)
+    (None, None) => self.getP5Instance().endShape4_()
   }
 }
 
@@ -881,11 +881,10 @@ impl P5JS with textFont(self, font, size) {
 ///|
 impl P5JS with text(self, str, x, y, x2, y2) {
   match (x2, y2) {
-    (Some(x2v), Some(y2v)) =>
-      self.getP5Instance().text_(str, x, y, x2=Some(x2v), y2=Some(y2v))
-    (Some(x2v), None) => self.getP5Instance().text_(str, x, y, x2=Some(x2v))
-    (None, None) => self.getP5Instance().text_(str, x, y)
-    _ => self.getP5Instance().text_(str, x, y)
+    (Some(xv2), Some(yv2)) => self.getP5Instance().text1_(str, x, y, x2=Some(xv2), y2=Some(yv2))
+    (Some(xv2), None) => self.getP5Instance().text3_(str, x, y, x2=Some(xv2))
+    (None, None) => self.getP5Instance().text2_(str, x, y)
+    _ => self.getP5Instance().text2_(str, x, y)
   }
 }
 
@@ -912,7 +911,12 @@ impl P5JS with imageMode(self, mode) {
 
 ///|
 impl P5JS with loadImage(self, path, callback, errorCallback) {
-  self.getP5Instance().loadImage_(path, callback, errorCallback)
+  match (callback, errorCallback) {
+    (Some(cb), Some(eb)) => self.getP5Instance().loadImage1_(path, Some(cb), Some(eb))
+    (Some(cb), None) => self.getP5Instance().loadImage3_(path, cb)
+    (None, None) => self.getP5Instance().loadImage2_(path)
+    _ => self.getP5Instance().loadImage2_(path)
+  }
 }
 
 // transform
@@ -929,7 +933,10 @@ impl P5JS with resetMatrix(self) {
 
 ///|
 impl P5JS with rotate(self, angle, axis) {
-  self.getP5Instance().rotate_(angle, axis~)
+  match axis {
+    Some(ax) => self.getP5Instance().rotate1_(angle, axis=Some(ax))
+    None => self.getP5Instance().rotate1_(angle)
+  }
 }
 
 ///|
@@ -964,7 +971,10 @@ impl P5JS with shearY(self, angle) {
 
 ///|
 impl P5JS with translate(self, x, y, z) {
-  self.getP5Instance().translate_(x, y, z~)
+  match z {
+    Some(zv) => self.getP5Instance().translate1_(x, y, z=Some(zv))
+    None => self.getP5Instance().translate2_(x, y)
+  }
 }
 
 ///|

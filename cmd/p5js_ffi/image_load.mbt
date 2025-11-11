@@ -59,7 +59,7 @@ extern "js" fn P5Instance::imageMode_(self : P5Instance, mode : String) -> Unit 
 ///|
 /// https://p5js.org/reference/p5/loadImage/
 /// 加载图像文件
-extern "js" fn P5Instance::loadImage_(
+extern "js" fn P5Instance::loadImage1_(
   self : P5Instance,
   path : String,
   callback : ((P5Image) -> Unit)?,
@@ -67,5 +67,28 @@ extern "js" fn P5Instance::loadImage_(
 ) -> P5Image =
   #| (self, path, callback, errorCallback) => {
   #|   const img = self.loadImage(path, callback, errorCallback);
+  #|   return img;
+  #| }
+
+/// https://p5js.org/reference/p5/loadImage/
+/// 加载图像文件
+extern "js" fn P5Instance::loadImage2_(
+  self : P5Instance,
+  path : String,
+) -> P5Image =  
+  #| (self, path) => {
+  #|   const img = self.loadImage(path);
+  #|   return img;
+  #| }
+
+/// https://p5js.org/reference/p5/loadImage/
+/// 加载图像文件
+extern "js" fn P5Instance::loadImage3_(
+  self : P5Instance,
+  path : String,
+  callback : ((P5Image) -> Unit),
+) -> P5Image =  
+  #| (self, path, callback) => {
+  #|   const img = self.loadImage(path, callback);
   #|   return img;
   #| }

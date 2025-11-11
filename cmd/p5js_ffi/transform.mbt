@@ -47,7 +47,7 @@ extern "js" fn P5Instance::resetMatrix_(self: P5Instance) -> Unit =
 /// 旋转坐标系统
 /// `angle`: 旋转角度（以弧度为单位）
 /// `axis` (可选): 在 3D 模式下，旋转轴 [x, y, z]
-extern "js" fn P5Instance::rotate_(
+extern "js" fn P5Instance::rotate1_(
   self: P5Instance,
   angle: Double,
   axis?: Array[Double]? = None
@@ -56,6 +56,15 @@ extern "js" fn P5Instance::rotate_(
   #|   if (axis) {
   #|     self.rotate(angle, axis._0);
   #|   } else {
+  #|     self.rotate(angle);
+  #|   }
+  #| }
+
+extern "js" fn P5Instance::rotate2_(
+  self: P5Instance,
+  angle: Double,
+) -> Unit =
+  #| (self, angle) => {
   #|     self.rotate(angle);
   #|   }
   #| }
@@ -121,7 +130,7 @@ extern "js" fn P5Instance::shearY_(
 /// 平移坐标系统
 /// 2D模式: translate(x, y)
 /// 3D模式: translate(x, y, z)
-extern "js" fn P5Instance::translate_(
+extern "js" fn P5Instance::translate1_(
   self: P5Instance,
   x: Double,
   y: Double,
@@ -131,6 +140,16 @@ extern "js" fn P5Instance::translate_(
   #|   if (z) {
   #|     self.translate(x, y, z._0);
   #|   } else {
+  #|     self.translate(x, y);
+  #|   }
+  #| }
+
+extern "js" fn P5Instance::translate2_(
+  self: P5Instance,
+  x: Double,
+  y: Double,
+) -> Unit =
+  #| (self, x, y) => {
   #|     self.translate(x, y);
   #|   }
   #| }

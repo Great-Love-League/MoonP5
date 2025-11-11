@@ -28,6 +28,10 @@ fn main {
       p.millis() / 5000.0 % 1.0,
     )
     p.fillColorObj(a)
+    p.beginShape(None)
+    p.vertex(50.0, 150.0, None, None, None)
+    p.bezierVertex(150.0, 50.0, 250.0, 250.0, 350.0, 150.0)
+    p.endShape(None, None)
     p.square(100.0, 100.0, 50.0)
     for t in get {
       let id = t.getId()
