@@ -152,4 +152,4 @@ extern "js" fn P5Instance::translate2_(
   #| (self, x, y) => {
   #|     self.translate(x, y);
   #|   }
-  #| }
+  #|
