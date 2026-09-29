@@ -1,0 +1,566 @@
+{
+  "source_dir": "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+  "name": "Demonmasterlqx/MoonP5",
+  "packages": [
+    {
+      "is-main": false,
+      "is-third-party": false,
+      "root-path": "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+      "root": "Demonmasterlqx/MoonP5",
+      "rel": "",
+      "files": {},
+      "wbtest-files": {},
+      "test-files": {},
+      "mbt-md-files": {},
+      "deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/wenyuxiang/.moon/lib/core/prelude"
+        }
+      ],
+      "wbtest-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/wenyuxiang/.moon/lib/core/prelude"
+        }
+      ],
+      "test-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/wenyuxiang/.moon/lib/core/prelude"
+        }
+      ],
+      "artifact": "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/MoonP5.mi",
+      "check-command": [
+        "check",
+        "-error-format",
+        "json",
+        "-o",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/MoonP5.mi",
+        "-pkg",
+        "Demonmasterlqx/MoonP5",
+        "-pkg-type",
+        "library",
+        "-std-path",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle",
+        "-i",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle/prelude/prelude.mi:prelude",
+        "-pkg-sources",
+        "Demonmasterlqx/MoonP5:/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+        "-target",
+        "js",
+        "-workspace-path",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+        "-all-pkgs",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/all_pkgs.json"
+      ],
+      "wbtest-check-command": null,
+      "test-check-command": [
+        "check",
+        "-error-format",
+        "json",
+        "-include-doctests",
+        "-o",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/MoonP5.blackbox_test.mi",
+        "-pkg",
+        "Demonmasterlqx/MoonP5_blackbox_test",
+        "-pkg-type",
+        "library",
+        "-std-path",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle",
+        "-i",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/MoonP5.mi:MoonP5",
+        "-i",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle/prelude/prelude.mi:prelude",
+        "-pkg-sources",
+        "Demonmasterlqx/MoonP5_blackbox_test:/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+        "-target",
+        "js",
+        "-blackbox-test",
+        "-workspace-path",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+        "-all-pkgs",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/all_pkgs.json"
+      ],
+      "supported-targets": [
+        "Wasm",
+        "WasmGC",
+        "Js",
+        "Native",
+        "LLVM"
+      ]
+    },
+    {
+      "is-main": false,
+      "is-third-party": false,
+      "root-path": "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi",
+      "root": "Demonmasterlqx/MoonP5",
+      "rel": "cmd/p5js_ffi",
+      "files": {
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/color_CreateReading.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/color_setting.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/environment.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/events_key.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/events_mouse.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/events_touch.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/p5js_ffi.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_2D.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_attributes.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_curve.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_geometry.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_models3D.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_primitives.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_vertex.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/typography_LoadingDisplaying.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/typography_attributes.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "wbtest-files": {},
+      "test-files": {},
+      "mbt-md-files": {},
+      "deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/wenyuxiang/.moon/lib/core/prelude"
+        }
+      ],
+      "wbtest-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/wenyuxiang/.moon/lib/core/prelude"
+        }
+      ],
+      "test-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/wenyuxiang/.moon/lib/core/prelude"
+        }
+      ],
+      "artifact": "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/p5js_ffi/p5js_ffi.mi",
+      "check-command": [
+        "check",
+        "-error-format",
+        "json",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/color_CreateReading.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/color_setting.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/environment.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/events_key.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/events_mouse.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/events_touch.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/p5js_ffi.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_2D.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_attributes.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_curve.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_geometry.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_models3D.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_primitives.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_vertex.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/typography_LoadingDisplaying.mbt",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/typography_attributes.mbt",
+        "-o",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/p5js_ffi/p5js_ffi.mi",
+        "-pkg",
+        "Demonmasterlqx/MoonP5/cmd/p5js_ffi",
+        "-pkg-type",
+        "library",
+        "-std-path",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle",
+        "-i",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle/prelude/prelude.mi:prelude",
+        "-pkg-sources",
+        "Demonmasterlqx/MoonP5/cmd/p5js_ffi:/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi",
+        "-target",
+        "js",
+        "-workspace-path",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+        "-all-pkgs",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/all_pkgs.json"
+      ],
+      "wbtest-check-command": null,
+      "test-check-command": [
+        "check",
+        "-error-format",
+        "json",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/color_CreateReading.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/color_setting.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/environment.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/events_key.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/events_mouse.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/events_touch.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/p5js_ffi.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_2D.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_attributes.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_curve.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_geometry.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_models3D.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_primitives.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/shape_vertex.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/typography_LoadingDisplaying.mbt",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi/typography_attributes.mbt",
+        "-include-doctests",
+        "-o",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/p5js_ffi/p5js_ffi.blackbox_test.mi",
+        "-pkg",
+        "Demonmasterlqx/MoonP5/cmd/p5js_ffi_blackbox_test",
+        "-pkg-type",
+        "library",
+        "-std-path",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle",
+        "-i",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/p5js_ffi/p5js_ffi.mi:p5js_ffi",
+        "-i",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle/prelude/prelude.mi:prelude",
+        "-pkg-sources",
+        "Demonmasterlqx/MoonP5/cmd/p5js_ffi_blackbox_test:/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi",
+        "-target",
+        "js",
+        "-blackbox-test",
+        "-workspace-path",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+        "-all-pkgs",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/all_pkgs.json"
+      ],
+      "supported-targets": [
+        "Wasm",
+        "WasmGC",
+        "Js",
+        "Native",
+        "LLVM"
+      ]
+    },
+    {
+      "is-main": true,
+      "is-third-party": false,
+      "root-path": "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/test_p5js",
+      "root": "Demonmasterlqx/MoonP5",
+      "rel": "cmd/test_p5js",
+      "files": {
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/test_p5js/main.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "wbtest-files": {},
+      "test-files": {},
+      "mbt-md-files": {},
+      "deps": [
+        {
+          "path": "Demonmasterlqx/MoonP5/cmd/p5js_ffi",
+          "alias": "p5js_ffi",
+          "fspath": "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/p5js_ffi"
+        },
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/wenyuxiang/.moon/lib/core/prelude"
+        }
+      ],
+      "wbtest-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/wenyuxiang/.moon/lib/core/prelude"
+        }
+      ],
+      "test-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/wenyuxiang/.moon/lib/core/prelude"
+        }
+      ],
+      "artifact": "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/test_p5js/test_p5js.mi",
+      "check-command": [
+        "check",
+        "-error-format",
+        "json",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/test_p5js/main.mbt",
+        "-o",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/test_p5js/test_p5js.mi",
+        "-pkg",
+        "Demonmasterlqx/MoonP5/cmd/test_p5js",
+        "-pkg-type",
+        "executable",
+        "-std-path",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle",
+        "-i",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/p5js_ffi/p5js_ffi.mi:p5js_ffi",
+        "-i",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle/prelude/prelude.mi:prelude",
+        "-pkg-sources",
+        "Demonmasterlqx/MoonP5/cmd/test_p5js:/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/test_p5js",
+        "-target",
+        "js",
+        "-workspace-path",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+        "-all-pkgs",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/all_pkgs.json"
+      ],
+      "wbtest-check-command": null,
+      "test-check-command": [
+        "check",
+        "-error-format",
+        "json",
+        "-doctest-only",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/test_p5js/main.mbt",
+        "-include-doctests",
+        "-o",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/test_p5js/test_p5js.blackbox_test.mi",
+        "-pkg",
+        "Demonmasterlqx/MoonP5/cmd/test_p5js_blackbox_test",
+        "-pkg-type",
+        "library",
+        "-std-path",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle",
+        "-i",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/p5js_ffi/p5js_ffi.mi:p5js_ffi",
+        "-i",
+        "/Users/wenyuxiang/.moon/lib/core/_build/js/release/bundle/prelude/prelude.mi:prelude",
+        "-i",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/cmd/test_p5js/test_p5js.mi:test_p5js",
+        "-pkg-sources",
+        "Demonmasterlqx/MoonP5/cmd/test_p5js_blackbox_test:/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/cmd/test_p5js",
+        "-target",
+        "js",
+        "-blackbox-test",
+        "-workspace-path",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5",
+        "-all-pkgs",
+        "/Users/wenyuxiang/Sandbox/js-extern-array/prs/Great-Love-League__MoonP5/_build/js/debug/check/all_pkgs.json"
+      ],
+      "supported-targets": [
+        "Wasm",
+        "WasmGC",
+        "Js",
+        "Native",
+        "LLVM"
+      ]
+    }
+  ],
+  "deps": [],
+  "backend": "js",
+  "opt_level": "debug",
+  "source": null
+}
