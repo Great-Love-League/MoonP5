@@ -74,15 +74,23 @@ extern "js" fn P5Instance::lightness_(self : P5Instance, c : Color) -> Double =
 /// https://p5js.org/reference/p5/paletteLerp/
 /// 混合多种颜色以查找它们之间的颜色
 /// paletteLerp(colors_stops, amt)
-extern "js" fn P5Instance::paletteLerp_(
+extern "js" fn P5Instance::paletteLerp__ffi(
   self : P5Instance,
-  colors_stops : Array[(String, Double)],
+  colors_stops : FixedArray[(String, Double)],
   amt : Double,
 ) -> Color =
   #| (self, colors_stops, amt) => {
   #|   const js_colors_stops = colors_stops.map(item => [item._0, item._1]);
   #|   return self.paletteLerp(js_colors_stops, amt);
   #| }
+
+fn P5Instance::paletteLerp_(
+  self : P5Instance,
+  colors_stops : Array[(String, Double)],
+  amt : Double,
+) -> Color {
+  P5Instance::paletteLerp__ffi(self, FixedArray::from_array(colors_stops), amt)
+}
 
 ///|
 /// https://p5js.org/reference/p5/Color/setRed/
