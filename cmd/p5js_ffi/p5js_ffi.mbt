@@ -848,7 +848,9 @@ impl FontJS with textBounds(self, str, x, y, fontSize) {
 
 ///|
 impl FontJS with textToPoints(self, str, x, y, fontSize, options) {
-  self.getFont().textToPoints_(str, x, y, fontSize=fontSize, options=options)
+  Array::from_fixed_array(
+    self.getFont().textToPoints_(str, x, y, fontSize=fontSize, options=options),
+  )
 }
 
 ///|

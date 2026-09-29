@@ -82,7 +82,7 @@ extern "js" fn Font::textToPoints_(
   y: Double,
   fontSize?: Option[Double] = None,
   options?: Option[TextToPointsOptions] = None
-) -> Array[PointData] =
+) -> FixedArray[PointData] =
   #| (self, str, x, y, fontSize, options) => {
   #|   const size_val = fontSize ? fontSize._0 : undefined;
   #|   const opts_val = options ? options._0 : undefined;
